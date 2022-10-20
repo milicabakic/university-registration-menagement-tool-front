@@ -8,25 +8,11 @@ import {Router} from "@angular/router";
 })
 export class AppComponent {
   title = 'University Registration Management';
-  username: string;
-  password: string
 
-    constructor(private router: Router) {
-      this.username = "";
-      this.password = "";
+   constructor(private router: Router) {
+
     }
 
     ngOnInit(): void {
     }
-
-    login(): void {
-        console.log("tekst")
-        this.router.navigate(['home']);
-    }
-//     if(this.password == "" || this.username == ""){
-//       alert('All fields are required!');
-//       return;
-//     }
-
-
 }
