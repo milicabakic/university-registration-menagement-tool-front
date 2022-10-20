@@ -1,1 +1,56 @@
 <p>home works!</p>
+<div>
+  <form (submit)="student_info()" class="mb-5">
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm">
+          <label for="full_name">Ime i prezime </label>
+          <p></p>
+          <input type="text" class="mytext"  id="full_name" name="full_name" placeholder="full_name" [(ngModel)]="full_name">
+          <p></p>
+          <label for="espb_curr">Dosadasnji ESPB </label>
+          <p></p>
+          <input type="text" class="mytext"  id="espb_curr" name="espb_curr" placeholder="espb_curr" [(ngModel)]="espb_curr">
+          <p></p>
+          <label for="espb_wanted">Naredne skolske godine upisujem (ESPB) </label>
+          <p></p>
+          <input type="text" class="mytext"  id="espb_wanted" name="espb_wanted" placeholder="espb_wanted" [(ngModel)]="espb_wanted">
+          <p></p>
+          <label for="index_number">Indeks (broj indeksa) </label>
+          <p></p>
+          <input type="text" class="mytext"  id="index_number" name="index_number" placeholder="index_number" [(ngModel)]="index_number">
+          <p></p>
+          <label for="index_year">Indeks (Godina upisa) </label>
+          <p></p>
+          <input type="text" class="mytext"  id="index_year" name="index_year" placeholder="index_year" [(ngModel)]="index_year">
+          <p></p>
+          <legend>Izberite smer</legend>
+
+          <div>
+            <input type="radio" id="rn" name="program" value="rn"
+                   checked>
+            <label for="rn">RN - Racunarske nauke</label>
+          </div>
+
+          <div>
+            <input type="radio" id="ri" name="program" value="ri">
+            <label for="ri">RI  Racunarsko inzenjerstvo</label>
+          </div>
+
+          <div>
+            <input type="radio" id="it" name="program" value="it">
+            <label for="it">IT - Informacione tehnologije</label>
+          </div>
+
+          <div>
+            <input type="radio" id="md" name="program" value="it">
+            <label for="md">MD - Multimedijalni dizajn</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <button type="submit" class="btn btn-primary">Nastavi dalje</button>
+  </form>
+</div>

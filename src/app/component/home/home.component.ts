@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -7,10 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  full_name: string;
+  espb_curr: number;
+  espb_wanted: number;
+  index_number: number;
+  index_year: number;
+  index_academic_program: string;
+
+
+  constructor(private router: Router) {
+    this.full_name = "";
+    this.espb_curr = 0;
+    this.espb_wanted = 0;
+    this.index_number = 0;
+    this.index_year = 0;
+    this.index_academic_program = "";
+  }
 
   ngOnInit(): void {
     console.log("tekst iz home component")
   }
 
+  student_info(): void {
+    this.router.navigate(['upis']);
+  }
 }
