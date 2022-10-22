@@ -8,12 +8,12 @@
         </div>
         <p></p>
         <div class="form-outline mb-4">
-          <label for="espb_curr">Dosadasnji ESPB </label>
+          <label for="espb_curr">Dosadašnji ESPB</label>
           <input type="text" class="form-control"  id="espb_curr" name="espb_curr" placeholder="espb_curr" [(ngModel)]="espb_curr">
           <p></p>
         </div>
         <div class="form-outline mb-4">
-          <label for="espb_wanted">Naredne skolske godine upisujem (ESPB) </label>
+          <label for="espb_wanted">Naredne školske godine upisujem (ESPB) </label>
           <input type="text" class="form-control"  id="espb_wanted" name="espb_wanted" placeholder="espb_wanted" [(ngModel)]="espb_wanted">
           <p></p>
         </div>
@@ -30,27 +30,55 @@
         <div class="form-outline mb-4">
           <label>Izaberite smer</label>
           <div>
-            <input type="radio" id="rn" name="program" value="rn"
-                   checked>
+            <input type="radio" id="rn" name="program" value="RN" [(ngModel)]="academic_program">
             <label for="rn">  RN - Racunarske nauke</label>
           </div>
 
           <div>
-            <input type="radio" id="ri" name="program" value="ri">
+            <input type="radio" id="ri" name="program" value="RI" [(ngModel)]="academic_program">
             <label for="ri">  RI  Racunarsko inzenjerstvo</label>
           </div>
 
           <div>
-            <input type="radio" id="it" name="program" value="it">
+            <input type="radio" id="it" name="program" value="IT" [(ngModel)]="academic_program">
             <label for="it">  IT - Informacione tehnologije</label>
           </div>
 
           <div>
-            <input type="radio" id="md" name="program" value="it">
+            <input type="radio" id="md" name="program" value="MD" [(ngModel)]="academic_program">
             <label for="md">  MD - Multimedijalni dizajn</label>
           </div>
         </div>
         <br>
+        <div class="form-outline mb-4">
+          <label>Naredne školske godine upisujem</label>
+          <div>
+            <input type="radio" id="year2" name="academicyear" value="2" [(ngModel)]="academic_year">
+            <label for="year2">II godinu</label>
+          </div>
+
+          <div>
+            <input type="radio" id="year3" name="academicyear" value="3" [(ngModel)]="academic_year">
+            <label for="year3">III godinu</label>
+          </div>
+
+          <div>
+            <input type="radio" id="year4" name="academicyear" value="4" [(ngModel)]="academic_year">
+            <label for="year4">IV godinu</label>
+          </div>
+        </div>
+        <div class="form-outline mb-4">
+          <label>Obnavljam godinu</label>
+          <div>
+            <input type="radio" id="renewed_true" name="renewed" value="true" [(ngModel)]="renewed_year">
+            <label for="renewed_true">Da</label>
+          </div>
+
+          <div>
+            <input type="radio" id="renewed_false" name="renewed" value="false" [(ngModel)]="renewed_year">
+            <label for="renewed_false">Ne</label>
+          </div>
+        </div>
         <div class="d-flex justify-content-around align-items-sm-end mb-2">
           <button type="submit" class="btn btn-primary">Nastavi dalje</button>
         </div>
