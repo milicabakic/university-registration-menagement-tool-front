@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {environment} from "../../environments/environment";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable} from "rxjs";
 import {JWT, AcademicYearRegistration, RegistrationForm} from "../model";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +13,13 @@ export class ApiService {
   academic_year: number;
   academic_program: string;
   registration_id: number;
-  renewed_year: number;
+  renewed_year: boolean;
 
   constructor(private httpClient:HttpClient) {
+    this.academic_year = 0;
+    this.academic_program = "";
+    this.registration_id = 0;
+    this.renewed_year = false;
   }
 
   submit_home_form(full_name: string, espb_curr: number, espb_wanted: number, index_number: number, index_year: number,
@@ -45,10 +49,10 @@ export class ApiService {
 
   submit_subjects_groups_form(registration_id: number, old_subjects: number[], group_odd: number, group_even: number): Observable<string> {
      return this.httpClient.post<string>(`${this.apiUrl}/api/registration/student-choice`, {
-            "registrationId": this.registration_id,
-            "oldSubjects": this.old_subjects,
-            "groupOddId": this.group_odd,
-            "groupEvenId": this.group_even
+            "registrationId": registration_id,
+            "oldSubjects": old_subjects,
+            "groupOddId": group_odd,
+            "groupEvenId": group_even
      });
   }
 

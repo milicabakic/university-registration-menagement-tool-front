@@ -1,7 +1,7 @@
 export interface AcademicYearRegistration {
   id: number,
-  academic_year: number,
-  academic_program: string,
+  academicYear: number,
+  academicProgram: string,
   renewed: boolean
 }
 
@@ -14,7 +14,8 @@ export interface Student {
 export interface RegistrationForm {
   groupsOdd: Group[]
   groupsEven: Group[]
-  subjects: Subject[]
+  subjectsOdd: Subject[]
+  subjectsEven: Subject[]
 }
 
 export interface Group {
