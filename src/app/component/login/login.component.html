@@ -1,20 +1,23 @@
 <div>
-  <form (submit)="login()" class="mb-5">
-    <div class="form-group">
-      <div class="row">
-        <div class="col-sm">
-          <label for="name">Username: </label>
-          <p></p>
-          <input type="text" class="mytext"  id="name" name="name" placeholder="Username" [(ngModel)]="username">
-          <p></p>
-          <label for="password">Password: </label>
-          <p></p>
-          <input type="password" class="mytext"  id="password" name="password" placeholder="Password" [(ngModel)]="password">
-        </div>
+  <div class="h-200 d-flex align-items-center justify-content-center">
+    <div class="col-lg-7 col-lg-5 col-xl-5 offset-xl-1">
+      <form (submit)="login()" class="mb-5">
+      <div class="form-outline mb-4">
+            <input type="text" class="form-control"  id="name" name="name" placeholder="Username" [(ngModel)]="username">
       </div>
+          <p></p>
+        <div class="form-outline mb-4">
+            <input type="password" class="form-control"  id="password" name="password" placeholder="Password" [(ngModel)]="password">
+        </div>
+        <div class="d-flex justify-content-end align-items-md-end mb-4">
+          <a href="#!">Forgot password?</a>
+        </div>
+        <br>
+        <div class="d-flex justify-content-around align-items-sm-end mb-2">
+          <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+      </form>
     </div>
-    <br>
-    <br>
-    <button type="submit" class="btn btn-primary">Login</button>
-  </form>
+  </div>
 </div>
+

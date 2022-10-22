@@ -26,7 +26,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("tekst iz home component")
   }
 
   student_info(): void {
