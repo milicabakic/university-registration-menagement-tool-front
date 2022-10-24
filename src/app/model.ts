@@ -5,10 +5,20 @@ export interface AcademicYearRegistration {
   renewed: boolean
 }
 
+export interface AcceptedRegistration {
+  message: string
+}
+
 export interface Student {
   id: number,
   username: string,
   password: string
+}
+
+export interface AcademicProgram {
+  id: number,
+  name: string,
+  code: string
 }
 
 export interface RegistrationForm {

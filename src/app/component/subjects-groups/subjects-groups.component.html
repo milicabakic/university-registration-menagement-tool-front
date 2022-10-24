@@ -1,2 +1,83 @@
-<p>subjects-groups works!</p>
-
+<div>
+  <form (submit)="submit()" class="mb-5">
+  <div class="h-200 d-flex align-items-center justify-content-center">
+    <div class="form-outline mb-4">
+      <h2 class="fw-lighter" *ngIf="groups_odd.length == 0; else elseBlock">Obnova {{academic_years[academic_year - 1]}} godine </h2>
+      <ng-template #elseBlock>
+        <h2 class="fw-lighter">Upis {{academic_years[academic_year - 1]}} godine </h2>
+      </ng-template>
+    </div>
+  </div>
+    <div class="h-200 d-flex align-items-center justify-content-center" *ngIf="groups_odd.length > 0">
+      <div class="col-lg-7 col-lg-5 col-xl-5 offset-xl-1">
+        <h5 class="fw-normal">Pregled predmeta po grupama</h5>
+        <p class="fw-lighter">Pažljivo izaberite grupu/e, jer naknadna promena neće biti moguća.</p>
+        <p></p>
+        <p class="fw-normal">Grupe za neparni semestar</p>
+        <label class="fw-lighter" *ngFor="let group of groups_odd">
+          {{group.name}} - {{group.subjects[0].name}}, {{group.subjects[1].name}}, {{group.subjects[2].name}}
+        </label>
+      </div>
+    </div>
+    <p></p>
+    <div class="h-200 d-flex align-items-center justify-content-center" *ngIf="groups_even.length > 0">
+      <div class="col-lg-7 col-lg-5 col-xl-5 offset-xl-1">
+        <p class="fw-normal">Grupe za parni semestar</p>
+        <label class="fw-lighter" *ngFor="let group of groups_even">
+          {{group.name}} - {{group.subjects[0].name}}, {{group.subjects[1].name}}, {{group.subjects[2].name}}
+        </label>
+      </div>
+    </div>
+    <p></p>
+    <div class="h-200 d-flex align-items-center justify-content-center" *ngIf="groups_odd.length > 0">
+      <div class="col-lg-7 col-lg-5 col-xl-5 offset-xl-1">
+        <p class="fw-normal">Izaberite grupu za neparni semestar</p>
+        <div *ngFor="let group of groups_odd" (click)="select_group_odd(group)">
+          <input type="radio" id="go" name="group_odd">
+          <label class="fw-light" for="go">{{group.name}}</label>
+        </div>
+      </div>
+    </div>
+    <p></p>
+    <div class="h-200 d-flex align-items-center justify-content-center" *ngIf="groups_even.length > 0">
+      <div class="col-lg-7 col-lg-5 col-xl-5 offset-xl-1">
+        <p class="fw-normal">Izaberite grupu za parni semestar</p>
+        <div *ngFor="let group of groups_even" (click)="select_group_even(group)">
+          <input type="radio" id="ge" name="group_even">
+          <label class="fw-light" for="ge">{{group.name}}</label>
+        </div>
+      </div>
+    </div>
+    <p></p>
+    <div class="h-200 d-flex align-items-center justify-content-center">
+      <div class="col-lg-7 col-lg-5 col-xl-5 offset-xl-1">
+        <label>Izaberite predmete koje ponovo slušate iz neparnog semestra</label>
+        <p></p>
+        <div class="form-check" *ngFor="let subject of subjects_odd" (click)="select_subject_odd(subject)">
+          <input class="form-check-input" type="checkbox" value="" id="checkBoxEven">
+          <label class="form-check-label" for="checkBoxEven">
+            {{subject.name}}
+          </label>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="h-200 d-flex align-items-center justify-content-center">
+    <div class="col-lg-7 col-lg-5 col-xl-5 offset-xl-1">
+      <label>Izaberite predmete koje ponovo slušate iz parnog semestra</label>
+      <p></p>
+      <div class="form-check" *ngFor="let subject of subjects_even" (click)="select_subject_even(subject)">
+        <input class="form-check-input" type="checkbox" value="" id="checkBoxOdd">
+        <label class="form-check-label" for="checkBoxOdd">
+          {{subject.name}}
+        </label>
+      </div>
+    </div>
+  </div>
+  <p></p>
+  <div class="d-flex justify-content-around align-items-sm-end mb-2">
+    <button type="submit" class="btn btn-primary">Potvrdi</button>
+  </div>
+  <p></p>
+  </form>
+</div>

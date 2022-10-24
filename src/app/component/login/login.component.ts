@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     console.log("login component")
-    this.router.navigate(['home']);
+    this.router.navigate(['pocetna']);
   }
 
 }

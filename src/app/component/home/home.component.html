@@ -4,31 +4,45 @@
       <form (submit)="student_info()" class="mb-5">
         <div class="form-outline mb-4">
           <label for="full_name">Ime i prezime </label>
-          <input type="text" class="form-control"  id="full_name" name="full_name" placeholder="full_name" [(ngModel)]="full_name">
+          <input type="text" class="form-control"  id="full_name" name="full_name" placeholder="" [(ngModel)]="full_name" required>
         </div>
         <p></p>
         <div class="form-outline mb-4">
           <label for="espb_curr">Dosadašnji ESPB</label>
-          <input type="text" class="form-control"  id="espb_curr" name="espb_curr" placeholder="espb_curr" [(ngModel)]="espb_curr">
+          <input type="text" class="form-control"  id="espb_curr" name="espb_curr" placeholder="" [(ngModel)]="espb_curr" required>
           <p></p>
         </div>
         <div class="form-outline mb-4">
           <label for="espb_wanted">Naredne školske godine upisujem (ESPB) </label>
-          <input type="text" class="form-control"  id="espb_wanted" name="espb_wanted" placeholder="espb_wanted" [(ngModel)]="espb_wanted">
+          <input type="text" class="form-control"  id="espb_wanted" name="espb_wanted" placeholder="" [(ngModel)]="espb_wanted" required>
           <p></p>
         </div>
         <div class="form-outline mb-4">
           <label for="index_number">Indeks (broj indeksa) </label>
-          <input type="text" class="form-control"  id="index_number" name="index_number" placeholder="index_number" [(ngModel)]="index_number">
+          <input type="text" class="form-control"  id="index_number" name="index_number" placeholder="" [(ngModel)]="index_number" required>
           <p></p>
         </div>
         <div class="form-outline mb-4">
           <label for="index_year">Indeks (godina upisa) </label>
-          <input type="text" class="form-control"  id="index_year" name="index_year" placeholder="index_year" [(ngModel)]="index_year">
+          <input type="text" class="form-control"  id="index_year" name="index_year" placeholder="" [(ngModel)]="index_year" required>
+          <p></p>
+        </div>
+        <div class="form-outline mb-4">
+          <label for="index_academic_program">Indeks (smer) </label>
+          <select class="form-select" name="index_academic_program" id="index_academic_program" value="" [(ngModel)]="index_academic_program" required>
+            <option *ngFor="let program of academic_programs">
+              {{program.code}} - {{program.name}}
+            </option>
+          </select>
           <p></p>
         </div>
         <div class="form-outline mb-4">
           <label>Izaberite smer</label>
+          <div *ngFor="let program of academic_programs" (click)="select_academic_program(program)">
+            <input type="radio" id="academic_program" name="academic_program">
+            <label class="fw-normal" for="academic_program"> {{program.code}} - {{program.name}}</label>
+          </div>
+<!--
           <div>
             <input type="radio" id="rn" name="program" value="RN" [(ngModel)]="academic_program">
             <label for="rn">  RN - Racunarske nauke</label>
@@ -48,6 +62,7 @@
             <input type="radio" id="md" name="program" value="MD" [(ngModel)]="academic_program">
             <label for="md">  MD - Multimedijalni dizajn</label>
           </div>
+      -->
         </div>
         <br>
         <div class="form-outline mb-4">

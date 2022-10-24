@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {environment} from "../../environments/environment";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {JWT, AcademicYearRegistration, RegistrationForm} from "../model";
+import {JWT, AcademicYearRegistration, RegistrationForm, AcademicProgram} from "../model";
 import {Observable} from "rxjs";
 
 @Injectable({
@@ -22,6 +22,7 @@ export class ApiService {
     this.renewed_year = false;
   }
 
+
   submit_home_form(full_name: string, espb_curr: number, espb_wanted: number, index_number: number, index_year: number,
                     index_academic_program: string, academic_year: number, renewed_year: boolean, academic_program: string): Observable<AcademicYearRegistration> {
     return this.httpClient.post<AcademicYearRegistration>(`${this.apiUrl}/api/registration/student`, {
@@ -40,12 +41,11 @@ export class ApiService {
 
   get_subjects_groups(academic_year: number, academic_program: string, renewed_year: boolean): Observable<RegistrationForm> {
      return this.httpClient.post<RegistrationForm>(`${this.apiUrl}/api/registration/academic-year`, {
-        "academicYear": this.academic_year,
-        "academicProgramCode": this.academic_program,
-        "renewed": this.renewed_year
+        "academicYear": academic_year,
+        "academicProgramCode": academic_program,
+        "renewed": renewed_year
      });
   }
-
 
   submit_subjects_groups_form(registration_id: number, old_subjects: number[], group_odd: number, group_even: number): Observable<string> {
      return this.httpClient.post<string>(`${this.apiUrl}/api/registration/student-choice`, {
@@ -54,6 +54,10 @@ export class ApiService {
             "groupOddId": group_odd,
             "groupEvenId": group_even
      });
+  }
+
+  get_academic_programs(): Observable<AcademicProgram[]> {
+    return this.httpClient.get<AcademicProgram[]>(`${this.apiUrl}/api/academic-programs`);
   }
 
 }
